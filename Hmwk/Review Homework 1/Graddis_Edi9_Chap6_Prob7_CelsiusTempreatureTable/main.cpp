@@ -1,5 +1,5 @@
 /* 
- * File:   TonyGaddis_9_6_7_celsiusTemperatureTable.cpp
+ * File:   main.cpp
  * Author: Matthew Madrigal
  * Created on September 11, 2025, 20:34 pm",
  * Purpose:  To demonstrate a function which converts from fahrenheit to celsius by display a table

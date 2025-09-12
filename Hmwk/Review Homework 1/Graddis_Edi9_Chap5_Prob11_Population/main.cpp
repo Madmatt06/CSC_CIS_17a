@@ -1,5 +1,5 @@
 /* 
- * File:   TonyGaddis_9_5_11_population.cpp
+ * File:   main.cpp
  * Author: Matthew Madrigal
  * Created on September 11, 2025, 8:08 pm,
  * Purpose:  To predict the size of a population of organisms. Prints their population each day

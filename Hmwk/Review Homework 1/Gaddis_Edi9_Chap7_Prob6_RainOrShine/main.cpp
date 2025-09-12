@@ -1,5 +1,5 @@
 /* 
- * File:   Gaddis_Edi9_Chap7_Prob6_shortAnswerArrays.cpp
+ * File:   main.cpp
  * Author: Matthew Madrigal
  * Created on September 11, 2025, 9:15 pm ,
  * Purpose: To count the number of days rainy, sunny, and cloudy days in each month and all 3 months (June, July, nad August)
