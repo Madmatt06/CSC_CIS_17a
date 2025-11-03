@@ -42,9 +42,11 @@ int main(int argc, char** argv) {
     } while(!valid);
     
     //The Process -> Map Inputs to Outputs
+    // Gets primes
     Primes *primes = factor(n);
     
     //Display Inputs/Outputs
+    // Displays primes
     prtPrms(primes);
 
     //Exit the Program
@@ -52,8 +54,8 @@ int main(int argc, char** argv) {
     return 0;
 }
 
+// Checks if a number is prime by dividing up to the square root (the other half doesn't matter, the first half relies on the second half.)
 bool isPrime(int num) {
-    // Checks if a number is prime by dividing up to the square root (the other half doesn't matter, the first half relies on the second half.)
     if(num < 2) return false;
     int max = sqrt(num);
     for(int i = 2; i <= max; i++) {
@@ -62,6 +64,7 @@ bool isPrime(int num) {
     return true;
 }
 
+// Gets the max power something can divide into num. Removes the amount from num.
 int power(int div, int &num) {
     int power = 0;
     while(num % div == 0) {
@@ -71,8 +74,8 @@ int power(int div, int &num) {
     return power;
 }
 
+// Gets the number of primes possible by checking all numbers inbetween 2 and the number inclusive
 int nPrimes(int n) {
-    cout << "Obtained " << n << endl;
     int count = 0;
     for(int i = n; i >= 2; i--) {
         if(n % i == 0) {
@@ -82,11 +85,13 @@ int nPrimes(int n) {
     return count;
 }
 
+// Frees memory
 void cleanUp(Primes *primes) {
     delete []primes->pStrAry;
     delete primes;
 }
 
+// Calculates all prime factors
 Primes *factor(int n) {
     Primes *primes = new Primes;
     primes->n = n;
@@ -105,6 +110,7 @@ Primes *factor(int n) {
     }
     return primes;
 }
+// Prints the number and it's primes with their power.
 void prtPrms(const Primes *primes) {
     cout << primes->n << " =";
     for(int i = primes->nPrimes - 1; i >= 0; i--) {
@@ -113,6 +119,7 @@ void prtPrms(const Primes *primes) {
     cout << endl;
 }
 
+// Makes sure the input is an int
 bool valNum(string input, bool zero) {
     bool isZero = true;
     if(input.length() > 0) {

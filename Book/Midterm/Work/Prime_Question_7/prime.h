@@ -6,7 +6,6 @@
 
 #ifndef PRIME_H
 #define PRIME_H
-using namespace std;
 struct Prime{
     unsigned char power; //Power associated with the prime number
     unsigned short prime; //Prime number factor
