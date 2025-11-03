@@ -152,7 +152,7 @@ Stats *stat(const Array *array){
     stats->mode=new Array;
     stats->mode->size=0;
     int nModes=0;
-    // My code! Counts the number of matching pairs until it reaches a non matching pair (Max frequency).
+    // Counts the number of matching pairs until it reaches a non matching pair (Max frequency).
     int curr = 1, max = 1;
     for(int i = 1; i < array->size; i++) {
         if(array->data[i-1] == array->data[i]) curr++;
@@ -192,12 +192,12 @@ Stats *stat(const Array *array){
         } else curr = 1;
         
     }
-
+    // Sets the mode prequency to max found
     stats->modFreq=max;
-
-    if(array->size%2 == 0) stats->median = (array->data[array->size/2] + array->data[(array->size/2)+1]) / 2.0;
-    else stats->median = array->data[(array->size/2)+1];
-
+    // Sets the median (odd number, median is middle. Even number, median is average of 2 middles)
+    if(array->size%2 == 0) stats->median = (array->data[array->size/2] + array->data[(array->size/2)-1]) / 2.0;
+    else stats->median = array->data[(array->size/2)];
+    // Calculates Average
     int total = 0;
     for(int i = 0; i < array->size; i++) {
         total += array->data[i];
