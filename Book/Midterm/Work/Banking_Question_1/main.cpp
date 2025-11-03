@@ -184,7 +184,7 @@ bool valMoney(string input, bool neg, bool zero) {
                 if(deci) return false;  // There can only be one decimal place
                 deci = true;
             } else {
-                if(!neg || i!=0 || input[i] != '-') return false;   // If negatives are not allowed, the - is not at the beggining, or the character we are looking at isnt - ,its invalid.
+                if(!neg || i!=0 || input[i] != '-') return false;   // If negatives are not allowed, the - is not at the beggining, or the character we are looking at isnt -, its invalid.
                 if(i+1 < input.length()) {
                     if(!isdigit(input[i+1])) return false;  // We only get here if we are dealing with a negative or a decimal. Makes sure the next char is a digit or else it would be invalid. No "-." allowed
                 } else return false;    // We can't accept just a "-" or "." (no numbers or value)
