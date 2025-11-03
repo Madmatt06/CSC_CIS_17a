@@ -1,0 +1,14 @@
+char 5
+unsigned char 5
+bool 1
+short int 7
+unsigned short int 8
+int 12
+unsigned int 12
+long int 20
+unsigned long int 20
+long long int 20
+unsigned long long int 20
+float 34 (float lost precision and was wrong at 14. Float kept storing larger values up to 34. After 34 cout prints infinity)
+double 170 (double may have lost precision and was wrong or my calculator may have been wrong at 22. double kept storing larger values up to 170. After 170 cout prints infinity)
+long double 170 (long double may have lost precision and was wrong or my calculator may have been wrong at 22. long double kept storing larger values up to 170. After 170 cout prints infinity
