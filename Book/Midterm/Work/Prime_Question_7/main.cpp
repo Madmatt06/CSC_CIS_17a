@@ -15,7 +15,7 @@ using namespace std;
 //Global Constants - Math/Science/Conversions only
 
 //Function Prototypes
-bool valNum(string, bool); //A function I have used in multiple questions to validate the user input
+bool valNum(string, bool); //Validates the user input
 bool isPrime(int); //Determine if the number is Prime
 int power(int, int&); //What power is this factor and remove from n
 int nPrimes(int); //How many Primes
