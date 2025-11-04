@@ -148,6 +148,7 @@ int main(int argc, char** argv) {
     cout << "The following data has been entered." << endl;
     cout << "Account number: " << user->accnum << endl;
     cout << "Name: " << user->name << endl;
+    cout << "Address: " << user->addr << endl;
     cout << "Starting balance: $" << fixed << setprecision(2) << user->bal << endl;
     cout << "Number of checks written: " << user->drSize << endl;
     cout << "Check amounts written: ";
