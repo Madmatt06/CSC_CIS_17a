@@ -20,7 +20,7 @@ using namespace std;
 double calcPay(double, double);
 bool valNum(string, bool);
 bool valDouble(string, bool, bool);
-bool valMoney(string input, bool, bool);
+bool valMoney(string, bool, bool);
 string digitToString(int, bool);
 string teenDigString(int);
 string numToPrefix(int);
@@ -39,6 +39,7 @@ int main(int argc, char** argv) {
     bool val;           // Used to make sure input is valid
 
     //Initialize Variables
+    // Gets company name (cannot be blank)
     do {
         cout << "Enter a company name: ";
         getline(cin, cmpnm);
@@ -46,6 +47,7 @@ int main(int argc, char** argv) {
         if (!val) cout << "The company name can not be blank." << endl;
     } while(!val);
 
+    //Gets company address (cannot be blank)
     do {
         cout << "Enter a company address: ";
         getline(cin, addr);
@@ -53,11 +55,13 @@ int main(int argc, char** argv) {
         if (!val) cout << "The company address can not be blank." << endl;
     } while(!val);
 
+    // Keeps running until an invalid payrate or hours is entered
     run = true;
     while(run) {
         int size;
         string input;
         bool valid;
+        // Gets the number of employees and then creates an array of the appropriate size
         do {
             cout << "Enter the number of employees: ";
             cin >> input;
@@ -67,8 +71,9 @@ int main(int argc, char** argv) {
         size = stoi(input);
         emps = new Employee[size];
         cin.ignore();
-        
+        // Goes through the whole array
         for(int i = 0; i < size; i++) {
+            // Gets the employee's name
             do {
                 cout << "Enter the employee's name: ";
                 getline(cin, emps[i].name);
@@ -77,7 +82,7 @@ int main(int argc, char** argv) {
                     cout << "The employee's name can not be blank." << endl;
                 }
             }while(!valid);
-
+            // Gets the employee's work time
             cout << "Enter the number of hours the employee has worked: ";
             cin >> input;
             valid = valDouble(input, false, true);
@@ -88,7 +93,7 @@ int main(int argc, char** argv) {
                 break;
             }
             emps[i].hours = stod(input);
-
+            // Gets the employee's pay rate
             cout << "Enter the payrate for the employee per hour: $";
             cin >> input;
             valid = valMoney(input, false, true);
@@ -101,7 +106,7 @@ int main(int argc, char** argv) {
             emps[i].rate = stod(input);
             cin.ignore();
         }
-        if(!run) break;
+        if(!run) break; // Exits the program if the user typed in an invalid payrate or hours worked
 
         //The Process -> Map Inputs to Outputs
         for(int i = 0; i < size; i++) {
@@ -113,7 +118,7 @@ int main(int argc, char** argv) {
             cout << endl;
             // Header for paycheck
             cout << cmpnm << endl << addr << endl;
-            // Actually changing part
+            // Actually changing part of paycheck
             cout << "Name: " << setw(20) << left << emps[i].name << " Amount: $" << fixed << setprecision(2) << emps[i].amount << endl;
             cout << "Amount: " << numToString(emps[i].amount) << " dollars and " << numToString(static_cast<int>(round(emps[i].amount*100))%100) << " cents" << endl; // TODO: Add code to translate to english.
             cout << "Signature Line: _________________________________" << endl;
@@ -130,15 +135,18 @@ double calcPay(double hours, const double rate) {
     const double trpTm = 50; // Triple time threshold in hours
     double amount = 0;
     double rem = hours - trpTm; // Remaining time after threshold
+    // Handles triple time
     if(rem > 0) {
         amount += rem*(rate*3);
         hours -= rem;
     }
+    // Handles double time
     rem = hours-dblTm;
     if(rem > 0) {
         amount += rem*(rate*2);
         hours -= rem;
     }
+    // Handles normal time
     amount += hours*rate;
     return amount;
 }
