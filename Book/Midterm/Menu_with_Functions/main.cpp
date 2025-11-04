@@ -1,8 +1,8 @@
 /* 
  * File:   main.cpp
- * Author: Dr Mark E. Lehr
+ * Author: Matthew Madrigal (Template by Dr Mark E. Lehr)
  * Purpose:  Menu using Functions,
- *           extend for midterm
+ *           extended for midterm
  */
 
 //System Libraries
